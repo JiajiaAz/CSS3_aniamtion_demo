@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	CSS3 transition demo</title>
+</head>
+<style type="text/css">
+h3{
+	width: 300px;
+	margin: 100px auto;
+}
+.cube{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	/*border: 1px solid #000;*/
+	transform-style: preserve-3d;
+	transition:transform 0.6s;
+}	
+.cube span{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 200px;
+}
+.cube span:nth-of-type(1){
+	background-color: red;
+	transform:translateZ(100px);
+}
+.cube span:nth-of-type(2){
+	background-color: green;
+	transform: translateY(100px) rotateX(-90deg);
+}
+.cube span:nth-of-type(3){
+	background-color: gray;
+	transform: translateX(-100px) rotateY(-90deg) rotateZ(90deg);
+}
+.cube span:nth-of-type(4){
+	background-color: orange;
+	transform: translateY(-100px) rotateX(90deg) rotateZ(180deg);
+}
+.cube span:nth-of-type(5){
+	background-color: pink;
+	transform: translateX(100px) rotateY(90deg) rotateZ(270deg);
+}
+.cube span:nth-of-type(6){
+	background-color: blue;
+	transform: translateZ(-100px)  rotateY(180deg) rotateZ(270deg);
+}
+@keyframes rotate{
+	0%{
+		transform: none;
+	}
+	15%{
+		transform: rotateX(90deg);
+	}
+	30%{
+		transform: rotateX(90deg) rotateZ(-90deg);
+	}
+	45%{
+		transform: rotateX(90deg) rotateZ(-180deg);
+	}
+	60%{
+		transform: rotateX(90deg) rotateZ(-270deg);
+	}
+	100%{
+		transform: rotateX(90deg) rotateZ(-270deg) rotateY(-90deg);
+	}
+}
+.cube:hover{
+	animation-name: rotate;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+</style>
+<body>
+	<div class="container">
+		<h3>CSS3 动画制作立体旋转效果</h3>		
+		<div class="cube">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+		</div>
+	</div>
+</body>
+</html>
